@@ -1,178 +1,294 @@
-<!-- FERRARI STYLE LAB BANNER -->
-<div class="ferrari-hero">
-    <div class="hero-content">
-        <h1 class="hero-title">DR. PIPETTE</h1>
-        <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
-        <a href="#products" class="ferrari-btn" title="Warning: Clicking may cause a 1:1000 dilution of boredom.">SCROLL TO DISCOVER</a>
-    </div>
-</div>
-
-<!-- PRODUCT REVEAL SECTION -->
-<div id="products" class="product-section">
-    <h2 class="section-title">THE PRECISION LINE-UP</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Pipette | Premium Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <div class="product-grid">
-        <!-- Card 1 -->
-        <div class="product-card">
-            <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=500&q=80');"></div>
-            <h3>THE MONO-SERIES</h3>
-            <p>Engineered for absolute single-channel micro-volume accuracy.</p>
-            <a href="#" class="card-link">EXPLORE MECHANICAL &rarr;</a>
-        </div>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
 
-        <!-- Card 2 -->
-        <div class="product-card">
-            <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1617155093730-a8bf47be792d?auto=format&fit=crop&w=500&q=80');"></div>
-            <h3>THE POLY-SERIES</h3>
-            <p>High-throughput multi-channel efficiency without a single microliter of compromise.</p>
-            <a href="#" class="card-link" title="Calculated error margin: ±0.00000% Matrix stable.">EXPLORE ELECTRONIC &rarr;</a>
-        </div>
+        /* 🏎️ Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1532187863486-abf9d39d6618?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            margin: 0;
+        }
+        .hero-tagline {
+            color: #E30613;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin: 10px 0 40px 0;
+        }
+        .scroll-btn {
+            background-color: #E30613;
+            color: white;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .scroll-btn:hover {
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+        }
 
-        <!-- Card 3 -->
-        <div class="product-card">
-            <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80');"></div>
-            <h3>ZERO-ERROR CALIBRATION</h3>
-            <p>ISO-certified tuning to keep your laboratory science flawlessly accurate.</p>
-            <a href="#" class="card-link">BOOK SERVICES &rarr;</a>
+        /* 📉 INTERACTIVE MORPHING TRACK (The magic happens here) */
+        .scroll-track {
+            position: relative;
+            height: 300vh; /* Long track to animate transitions over scroll */
+            background-color: #050505;
+        }
+
+        /* Sticky container holding the second screen frame */
+        .sticky-wrapper {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* The Second Screen Visual Panel that will MINIMIZE/SHRINK on scroll */
+        .morph-screen {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0 solid transparent;
+        }
+
+        /* Initial text inside the full second screen */
+        .morph-screen h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            transition: opacity 0.4s ease;
+        }
+
+        /* ⚡ TRIGGER CLASSES (Controlled by JavaScript based on scroll position) */
+        /* This class shrinks, rounds, and shifts the screen frame to the side */
+        .sticky-wrapper.shrunk .morph-screen {
+            width: 40vw;
+            height: 70vh;
+            border-radius: 12px;
+            border: 2px solid #E30613;
+            left: 5vw;
+            box-shadow: 0 20px 50px rgba(227, 6, 19, 0.15);
+        }
+        .sticky-wrapper.shrunk .morph-screen h2 {
+            opacity: 0; /* Hide initial text when shrunk */
+        }
+
+        /* 🍿 POP-UP INTERACTIVE CONTENT PANEL */
+        .popup-data-container {
+            position: absolute;
+            right: -50vw; /* Hidden off-screen right initially */
+            width: 45vw;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 0;
+        }
+
+        /* Slides the new screen content in when container shrinks */
+        .sticky-wrapper.shrunk .popup-data-container {
+            right: 5vw;
+            opacity: 1;
+        }
+
+        .data-card {
+            background: #111111;
+            border-left: 4px solid #E30613;
+            padding: 40px;
+            border-radius: 0 8px 8px 0;
+        }
+        .data-card h3 {
+            font-size: 2.2rem;
+            margin: 0 0 20px 0;
+            color: #ffffff;
+        }
+        .data-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #222;
+        }
+        .data-item strong {
+            color: #E30613;
+            display: block;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .data-item p {
+            margin: 0;
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Interactive Counter Dial Widget */
+        .volume-dialer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            background: #000;
+            padding: 15px;
+            border-radius: 4px;
+            width: fit-content;
+        }
+        .dial-display {
+            font-family: monospace;
+            font-size: 1.8rem;
+            color: #00ff66;
+            background: #111;
+            padding: 5px 15px;
+            border-radius: 2px;
+            border: 1px solid #222;
+        }
+
+        /* 🧪 Science Easter Egg Footer */
+        .footer {
+            background-color: #020202;
+            padding: 40px;
+            text-align: center;
+            color: #444;
+            font-size: 0.8rem;
+        }
+        .easter-egg {
+            color: #0d0d0d;
+            transition: color 0.5s;
+            cursor: default;
+            user-select: none;
+            margin-top: 15px;
+        }
+        .easter-egg:hover {
+            color: #00ff66;
+            text-shadow: 0 0 10px #00ff66;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">DR. PIPETTE</h1>
+            <p class="hero-tagline">THE MECHANICS OF LIQUID FLOW</p>
+            <a href="#explore" class="scroll-btn" title="Clicking triggers a 1:1000 boredom dilution filter.">INITIATE DISCOVERY</a>
         </div>
     </div>
-</div>
 
-<!-- EASTER EGG FOOTER -->
-<footer class="science-footer">
-    <p>&copy; 2026 Dr. Pipette | High-Precision Liquid Handling.</p>
-    <p class="easter-egg">Current system status: Peak Efficiency. Error margin: &plusmn;0.000&mu;L. System temperature optimized to 0 K (Absolute Zero). Keep it cool.</p>
-</footer>
+    <!-- MORPHING ENGINE TRACK -->
+    <div id="explore" class="scroll-track">
+        <div class="sticky-wrapper" id="stickyContainer">
+            
+            <!-- Second Screen (Will minimize/shrink dynamically on scroll) -->
+            <div class="morph-screen">
+                <h2>ENTERING EXPERIMENTAL ZONE</h2>
+            </div>
 
-<!-- PREMIUM FERRARI-LAB VISUAL STYLES -->
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
-    body {
-        margin: 0;
-        background-color: #0b0b0b;
-        font-family: 'Montserrat', sans-serif;
-    }
-    /* Full screen dramatic hero */
-    .ferrari-hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), 
-                    url('https://images.unsplash.com/photo-1532187863486-abf9d39d6618?auto=format&fit=crop&w=1920&q=80');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-    .hero-title {
-        color: #ffffff;
-        font-size: 5rem;
-        font-weight: 900;
-        letter-spacing: 4px;
-        margin: 0 0 10px 0;
-    }
-    .hero-tagline {
-        color: #E30613; /* Ferrari Red */
-        font-size: 1.5rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        margin-bottom: 40px;
-    }
-    .ferrari-btn {
-        background-color: #E30613;
-        color: white;
-        padding: 15px 35px;
-        text-decoration: none;
-        font-weight: 700;
-        letter-spacing: 1px;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-        display: inline-block;
-    }
-    .ferrari-btn:hover {
-        background-color: #ffffff;
-        color: #000000;
-        transform: scale(1.05);
-    }
-    /* Product grid styling */
-    .product-section {
-        background-color: #0b0b0b;
-        padding: 100px 5%;
-        text-align: center;
-    }
-    .section-title {
-        color: #ffffff;
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 60px;
-        letter-spacing: 1px;
-    }
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        max-width: 1300px;
-        margin: 0 auto;
-    }
-    .product-card {
-        background-color: #141414;
-        border: 1px solid #222;
-        padding: 25px;
-        border-radius: 4px;
-        text-align: left;
-        transition: border-color 0.3s ease;
-    }
-    .product-card:hover {
-        border-color: #E30613;
-    }
-    .card-img-placeholder {
-        height: 250px;
-        background-size: cover;
-        background-position: center;
-        border-radius: 2px;
-        margin-bottom: 20px;
-        background-color: #222;
-    }
-    .product-card h3 {
-        color: #ffffff;
-        margin: 0 0 10px 0;
-        font-size: 1.3rem;
-    }
-    .product-card p {
-        color: #aaaaaa;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        height: 70px;
-    }
-    .card-link {
-        color: #E30613;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.85rem;
-        letter-spacing: 1px;
-    }
-    .card-link:hover {
-        color: #ffffff;
-    }
-    /* Science Footer & Easter Eggs */
-    .science-footer {
-        background-color: #050505;
-        padding: 40px 20px;
-        text-align: center;
-        color: #666;
-        font-size: 0.85rem;
-        border-top: 1px solid #111;
-    }
-    .easter-egg {
-        margin-top: 15px;
-        font-size: 0.75rem;
-        color: #222; /* Hides it in darkness */
-        transition: color 0.5s ease;
-        cursor: default;
-    }
-    .easter-egg:hover {
-        color: #00ff66; /* Glows neon green on hover! */
-    }
-</style>
+            <!-- New Screen Content (Pops up automatically beside the shrunken window) -->
+            <div class="popup-data-container">
+                <div class="data-card">
+                    <h3>MICROPIDETTE SPECIFICATIONS</h3>
+                    
+                    <div class="data-item">
+                        <strong>AIR CUSHION TECHNOLOGY</strong>
+                        <p>Piston mechanisms dynamically displace an exact volume atmospheric envelope for frictionless actuation.</p>
+                    </div>
+
+                    <div class="data-item">
+                        <strong>THERMAL INSULATION CORE</strong>
+                        <p>Constructed with aerospace-grade polymer matrix shells to negate hand-heat transfer adjustments.</p>
+                    </div>
+
+                    <!-- Interactive Micro-Volume Dial Widget -->
+                    <div class="volume-dialer">
+                        <span style="font-size: 0.8rem; font-weight: bold; color: #aaa;">VOL METRIC DISPLAY:</span>
+                        <div class="dial-display" id="volDial">100.00</div>
+                        <span style="font-size: 0.9rem; color: #00ff66;">&mu;L</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Dr. Pipette Independent Lab Architecture.</p>
+        <p class="easter-egg">Core temperature static: 0 K (Absolute Zero). Operational error threshold absolute: &plusmn;0.000&mu;L. System stable.</p>
+    </footer>
+
+    <!-- INTERACTION LOGIC ENGINE -->
+    <script>
+        const track = document.getElementById('explore');
+        const container = document.getElementById('stickyContainer');
+        const volDial = document.getElementById('volDial');
+
+        window.addEventListener('scroll', () => {
+            const trackTop = track.getBoundingClientRect().top;
+            const trackHeight = track.getBoundingClientRect().height;
+            const windowHeight = window.innerHeight;
+
+            // Calculate exact percentage scrolled through the 300vh track
+            const scrollPercent = Math.min(Math.max(-trackTop / (trackHeight - windowHeight), 0), 1);
+
+            // Trigger window minimization and content pop-up halfway through the scroll track
+            if (scrollPercent > 0.25) {
+                container.classList.add('shrunk');
+            } else {
+                container.classList.remove('shrunk');
+            }
+
+            // Interactive Volume Dialer Effect: Numbers rapidly calibrate as you scroll down!
+            if (scrollPercent > 0) {
+                const calibratedVolume = (100 + (scrollPercent * 900)).toFixed(2);
+                volDial.innerText = calibratedVolume;
+            }
+        </script>
+</body>
+</html>
