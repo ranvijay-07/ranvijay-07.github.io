@@ -22,7 +22,7 @@
         /* --- STAGE 1 & 2: INTRO & INTERACTIVE PINNED MATRIX --- */
         .scroll-container {
             position: relative;
-            height: 200vh; /* Optimized: Shortened so the website unlocks much faster */
+            height: 200vh;
             background-color: #030303;
         }
 
@@ -65,20 +65,40 @@
             padding: 0 20px;
         }
 
-        /* 🎬 Smooth Entrance for Logo Asset */
-        .hero-logo {
+        /* Logo Container & Animation */
+        .logo-wrapper {
             max-width: 650px;
             width: 85%;
-            height: auto;
             margin-bottom: 10px;
             opacity: 0;
             transform: translateY(30px);
             animation: logoEntrance 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo {
+            width: 100%;
+            height: auto;
             display: block;
         }
 
-        .hero-tagline {
+        /* High-End Text Fallback if image asset is completely missing */
+        .text-fallback-logo {
+            display: none;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-fallback-logo span {
             color: #E30613; /* Ferrari Red */
+        }
+
+        .hero-tagline {
+            color: #E30613; 
             font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: 4px;
@@ -482,17 +502,24 @@
 </head>
 <body>
 
+    <!-- STAGE 1 & 2: CONTAINER FOR INTERACTIVE DECONSTRUCTION -->
     <div class="scroll-container">
         <div class="viewport-wrapper">
 
+            <!-- Hero Intro Section -->
             <div class="ferrari-hero" id="heroScreen">
                 <div class="hero-content">
-                    <img src="./DR_Pipette.webp" alt="Dr. Pipette" class="hero-logo">
+                    <div class="logo-wrapper">
+                        <!-- Smart Image Loader with fallback sequences -->
+                        <img src="DR_Pipette.webp" alt="Dr. Pipette" class="hero-logo" id="mainLogoAsset">
+                        <div class="text-fallback-logo" id="textLogoAsset">DR. <span>PIPETTE</span></div>
+                    </div>
                     <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
                     <div class="scroll-hint">Scroll Down to Deconstruct</div>
                 </div>
             </div>
 
+            <!-- Interactive HUD Dashboard Frame -->
             <div class="interactive-screen" id="popupScreen">
                 <div class="screen-header">
                     <h2>ANALYTICAL INTERFACE MATRIX</h2>
@@ -550,8 +577,10 @@
         </div>
     </div>
 
+    <!-- STAGE 3: CONTINUOUS SCROLL SHOWROOM WEBPAGE -->
     <div class="extended-content">
         
+        <!-- Fleet Grid Showcase -->
         <h2 class="section-title">THE 2026 <span>INSTRUMENT LINE</span></h2>
         <div class="fleet-grid">
             <div class="fleet-card">
@@ -582,6 +611,7 @@
             </div>
         </div>
 
+        <!-- LAB INSTRUMENT MATRIX GRID -->
         <h2 class="section-title">LABORATORY <span>ECOSYSTEM SYSTEMS</span></h2>
         
         <div class="instrument-matrix-section">
@@ -622,12 +652,42 @@
 
     </div>
 
+    <!-- FRAME FOOTER WITH EASTER EGG -->
     <footer class="science-footer">
         <p>&copy; 2026 Dr. Pipette | Quantum Laboratory Instrument Layouts.</p>
         <p class="easter-egg">Diagnostic Sync: Verified // Volumetric Drift Index: &plusmn;0.000000% // Ambient core lock: Absolute Zero (0 Kelvin Activeout) // Hidden file matrix online.</p>
     </footer>
 
+    <!-- INTERACTIVE ENGINE & AUTO-CORRECTION LOGIC -->
     <script>
+        // --- 🛠️ AUTOMATED LINK RECOVERY SYSTEM ---
+        const mainLogo = document.getElementById('mainLogoAsset');
+        const textLogo = document.getElementById('textLogoAsset');
+        
+        // Comprehensive list of alternative names/formats to look for automatically
+        const variations = [
+            'dr_pipette.webp',
+            'DR_Pipette.png',
+            'dr_pipette.png',
+            'DR_Pipette.jpg',
+            'logo.webp',
+            'logo.png'
+        ];
+        let currentTry = 0;
+
+        mainLogo.onerror = function() {
+            if (currentTry < variations.length) {
+                console.log(`Asset path failed. Attemping structural recovery path: ${variations[currentTry]}`);
+                this.src = variations[currentTry++];
+            } else {
+                // If every variation fails, smoothly deploy the high-end text logo element instead
+                console.log("All image variants missing from root folder. Executing system CSS text engine layout.");
+                this.style.display = 'none';
+                textLogo.style.display = 'block';
+            }
+        };
+
+        // --- 🖱️ INTERACTIVE MECHANICS ---
         const heroScreen = document.getElementById('heroScreen');
         const popupScreen = document.getElementById('popupScreen');
         const pipetteVisual = document.getElementById('pipetteVisual');
