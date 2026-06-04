@@ -36,7 +36,7 @@
             overflow: hidden;
         }
 
-        /* Hero Banner - Minimizes smoothly */
+        /* Hero Banner - Minimizes smoothly on scroll */
         .ferrari-hero {
             position: absolute;
             top: 0;
@@ -56,12 +56,23 @@
             z-index: 2;
         }
 
-        .hero-title {
-            font-size: 5.5rem;
-            font-weight: 900;
-            letter-spacing: 12px;
-            margin: 0;
-            text-shadow: 0 0 30px rgba(223, 6, 19, 0.2);
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 🎬 Slow Elegant Entrance for DR_Pipette.webp Logo */
+        .hero-logo {
+            max-width: 650px;
+            width: 85%;
+            height: auto;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: logoEntrance 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.1));
         }
 
         .hero-tagline {
@@ -70,6 +81,9 @@
             font-weight: 700;
             letter-spacing: 4px;
             margin: 15px 0 40px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: elementFadeIn 1.5s ease-out 1s forwards;
         }
 
         .scroll-hint {
@@ -80,6 +94,8 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-size: 0.85rem;
+            opacity: 0;
+            animation: elementFadeIn 1.5s ease-out 1.4s forwards;
         }
 
         /* Interactive Screen Dashboard */
@@ -218,7 +234,7 @@
             display: block;
         }
 
-        /* Widget Block 3: Dynamic Science Metric Telemetry Panel (Fills Blank Space) */
+        /* Widget Block 3: Dynamic Science Metric Telemetry Panel */
         .telemetry-panel {
             background-color: #0d0d0d;
             border: 1px solid #1a1a1a;
@@ -258,7 +274,7 @@
         }
 
 
-        /* --- STAGE 3: BRAND NEW CONTINUOUS EXTENDED WEBPAGE CONTENT --- */
+        /* --- STAGE 3: CONTINUOUS EXTENDED WEBPAGE CONTENT --- */
         .extended-content {
             position: relative;
             z-index: 10;
@@ -351,7 +367,7 @@
             color: #000;
         }
 
-        /* --- NEW SECTION: IMMERSIVE ADVANCED INSTRUMENTS PHOTO MATRIX --- */
+        /* --- IMMERSIVE ADVANCED INSTRUMENTS PHOTO MATRIX --- */
         .instrument-matrix-section {
             max-width: 1400px;
             margin: 0 auto 100px auto;
@@ -409,7 +425,6 @@
             letter-spacing: 1px;
         }
 
-        /* Specific Grid Spans for cool premium aesthetic asymmetry */
         .span-large {
             grid-column: span 2;
             grid-row: span 2;
@@ -441,21 +456,48 @@
             color: #00ff66;
             text-shadow: 0 0 8px #00ff66;
         }
+
+        /* Animation Timings */
+        @keyframes logoEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes elementFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- STAGE 1 & 2: CONTAINER FOR INTERACTIVE DECONSTRUCTION -->
     <div class="scroll-container">
         <div class="viewport-wrapper">
 
+            <!-- Hero Intro Section (Shrinks smoothly away) -->
             <div class="ferrari-hero" id="heroScreen">
                 <div class="hero-content">
-                    <h1 class="hero-title">DR. PIPETTE</h1>
+                    <!-- Loaded dynamically via your native webp asset code container -->
+                    <img src="DR_Pipette.webp" alt="Dr. Pipette" class="hero-logo">
                     <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
                     <div class="scroll-hint">Scroll Down to Deconstruct</div>
                 </div>
             </div>
 
+            <!-- Interactive HUD Dashboard Frame -->
             <div class="interactive-screen" id="popupScreen">
                 <div class="screen-header">
                     <h2>ANALYTICAL INTERFACE MATRIX</h2>
@@ -513,8 +555,10 @@
         </div>
     </div>
 
+    <!-- STAGE 3: CONTINUOUS SCROLL SHOWROOM WEBPAGE -->
     <div class="extended-content">
         
+        <!-- Fleet Grid Showcase -->
         <h2 class="section-title">THE 2026 <span>INSTRUMENT LINE</span></h2>
         <div class="fleet-grid">
             <div class="fleet-card">
@@ -545,6 +589,7 @@
             </div>
         </div>
 
+        <!-- LAB INSTRUMENT MATRIX GRID -->
         <h2 class="section-title">LABORATORY <span>ECOSYSTEM SYSTEMS</span></h2>
         
         <div class="instrument-matrix-section">
@@ -585,11 +630,13 @@
 
     </div>
 
+    <!-- FRAME FOOTER WITH EASTER EGG -->
     <footer class="science-footer">
         <p>&copy; 2026 Dr. Pipette | Quantum Laboratory Instrument Layouts.</p>
         <p class="easter-egg">Diagnostic Sync: Verified // Volumetric Drift Index: &plusmn;0.000000% // Ambient core lock: Absolute Zero (0 Kelvin Activeout) // Hidden file matrix online.</p>
     </footer>
 
+    <!-- INTERACTIVE ENGINE LOGIC -->
     <script>
         const heroScreen = document.getElementById('heroScreen');
         const popupScreen = document.getElementById('popupScreen');
@@ -602,13 +649,11 @@
             let scrollFactor = window.scrollY / window.innerHeight;
             let factor = Math.min(Math.max(scrollFactor, 0), 1);
 
-            // Zoom out and minimize the hero frame layout
             let heroScale = 1 - (factor * 0.22);
             let heroOpacity = 1 - (factor * 1.3);
             heroScreen.style.transform = `scale(${heroScale})`;
             heroScreen.style.opacity = heroOpacity;
 
-            // Scale and fade into view the dashboard panel beneath
             let popupScale = 1.1 - (factor * 0.1);
             let popupOpacity = factor * 1.6;
             popupScreen.style.transform = `scale(${popupScale})`;
@@ -621,7 +666,6 @@
             }
         });
 
-        // Tab selection engine linking real-time text updates to the telemetry panel widgets
         function activateModule(element, volumeText, transformStyle, humValue, pressValue) {
             document.querySelectorAll('.control-tab').forEach(tab => {
                 tab.classList.remove('active');
@@ -631,7 +675,6 @@
             lcdDisplay.innerText = volumeText;
             pipetteVisual.style.transform = transformStyle;
             
-            // Inject dynamic feedback text values directly to telemetry boxes
             hudHumidity.innerText = humValue;
             hudPressure.innerText = pressValue;
         }
