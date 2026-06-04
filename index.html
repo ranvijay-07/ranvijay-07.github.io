@@ -1,0 +1,178 @@
+<!-- FERRARI STYLE LAB BANNER -->
+<div class="ferrari-hero">
+    <div class="hero-content">
+        <h1 class="hero-title">DR. PIPETTE</h1>
+        <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
+        <a href="#products" class="ferrari-btn" title="Warning: Clicking may cause a 1:1000 dilution of boredom.">SCROLL TO DISCOVER</a>
+    </div>
+</div>
+
+<!-- PRODUCT REVEAL SECTION -->
+<div id="products" class="product-section">
+    <h2 class="section-title">THE PRECISION LINE-UP</h2>
+    
+    <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+            <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=500&q=80');"></div>
+            <h3>THE MONO-SERIES</h3>
+            <p>Engineered for absolute single-channel micro-volume accuracy.</p>
+            <a href="#" class="card-link">EXPLORE MECHANICAL &rarr;</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+            <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1617155093730-a8bf47be792d?auto=format&fit=crop&w=500&q=80');"></div>
+            <h3>THE POLY-SERIES</h3>
+            <p>High-throughput multi-channel efficiency without a single microliter of compromise.</p>
+            <a href="#" class="card-link" title="Calculated error margin: ±0.00000% Matrix stable.">EXPLORE ELECTRONIC &rarr;</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card">
+            <div class="card-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80');"></div>
+            <h3>ZERO-ERROR CALIBRATION</h3>
+            <p>ISO-certified tuning to keep your laboratory science flawlessly accurate.</p>
+            <a href="#" class="card-link">BOOK SERVICES &rarr;</a>
+        </div>
+    </div>
+</div>
+
+<!-- EASTER EGG FOOTER -->
+<footer class="science-footer">
+    <p>&copy; 2026 Dr. Pipette | High-Precision Liquid Handling.</p>
+    <p class="easter-egg">Current system status: Peak Efficiency. Error margin: &plusmn;0.000&mu;L. System temperature optimized to 0 K (Absolute Zero). Keep it cool.</p>
+</footer>
+
+<!-- PREMIUM FERRARI-LAB VISUAL STYLES -->
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        margin: 0;
+        background-color: #0b0b0b;
+        font-family: 'Montserrat', sans-serif;
+    }
+    /* Full screen dramatic hero */
+    .ferrari-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), 
+                    url('https://images.unsplash.com/photo-1532187863486-abf9d39d6618?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .hero-title {
+        color: #ffffff;
+        font-size: 5rem;
+        font-weight: 900;
+        letter-spacing: 4px;
+        margin: 0 0 10px 0;
+    }
+    .hero-tagline {
+        color: #E30613; /* Ferrari Red */
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 40px;
+    }
+    .ferrari-btn {
+        background-color: #E30613;
+        color: white;
+        padding: 15px 35px;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 1px;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    .ferrari-btn:hover {
+        background-color: #ffffff;
+        color: #000000;
+        transform: scale(1.05);
+    }
+    /* Product grid styling */
+    .product-section {
+        background-color: #0b0b0b;
+        padding: 100px 5%;
+        text-align: center;
+    }
+    .section-title {
+        color: #ffffff;
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 60px;
+        letter-spacing: 1px;
+    }
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+    .product-card {
+        background-color: #141414;
+        border: 1px solid #222;
+        padding: 25px;
+        border-radius: 4px;
+        text-align: left;
+        transition: border-color 0.3s ease;
+    }
+    .product-card:hover {
+        border-color: #E30613;
+    }
+    .card-img-placeholder {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 2px;
+        margin-bottom: 20px;
+        background-color: #222;
+    }
+    .product-card h3 {
+        color: #ffffff;
+        margin: 0 0 10px 0;
+        font-size: 1.3rem;
+    }
+    .product-card p {
+        color: #aaaaaa;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        height: 70px;
+    }
+    .card-link {
+        color: #E30613;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+    .card-link:hover {
+        color: #ffffff;
+    }
+    /* Science Footer & Easter Eggs */
+    .science-footer {
+        background-color: #050505;
+        padding: 40px 20px;
+        text-align: center;
+        color: #666;
+        font-size: 0.85rem;
+        border-top: 1px solid #111;
+    }
+    .easter-egg {
+        margin-top: 15px;
+        font-size: 0.75rem;
+        color: #222; /* Hides it in darkness */
+        transition: color 0.5s ease;
+        cursor: default;
+    }
+    .easter-egg:hover {
+        color: #00ff66; /* Glows neon green on hover! */
+    }
+</style>
