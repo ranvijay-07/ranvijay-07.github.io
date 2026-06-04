@@ -22,7 +22,7 @@
         /* --- STAGE 1 & 2: INTRO & INTERACTIVE PINNED MATRIX --- */
         .scroll-container {
             position: relative;
-            height: 260vh;
+            height: 200vh; /* Optimized: Shortened so the website unlocks much faster */
             background-color: #030303;
         }
 
@@ -51,7 +51,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            transition: transform 0.1s linear, opacity 0.1s linear, border-radius 0.2s;
+            transition: transform 0.1s linear, opacity 0.1s linear;
             transform-origin: center center;
             z-index: 2;
         }
@@ -65,7 +65,7 @@
             padding: 0 20px;
         }
 
-        /* 🎬 Slow Elegant Entrance for DR_Pipette.webp Logo */
+        /* 🎬 Smooth Entrance for Logo Asset */
         .hero-logo {
             max-width: 650px;
             width: 85%;
@@ -74,6 +74,7 @@
             opacity: 0;
             transform: translateY(30px);
             animation: logoEntrance 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            display: block;
         }
 
         .hero-tagline {
@@ -149,7 +150,6 @@
             align-items: stretch;
         }
 
-        /* Widget Block 1: The Pipette Graphic Visualizer */
         .pipette-display-panel {
             background-color: #0d0d0d;
             border: 1px solid #1a1a1a;
@@ -188,7 +188,6 @@
             text-shadow: 0 0 6px #00ff66;
         }
 
-        /* Widget Block 2: Architectural Menu controls */
         .interface-controls {
             display: flex;
             flex-direction: column;
@@ -236,7 +235,6 @@
             display: block;
         }
 
-        /* Widget Block 3: Dynamic Science Metric Telemetry Panel */
         .telemetry-panel {
             background-color: #0d0d0d;
             border: 1px solid #1a1a1a;
@@ -484,21 +482,17 @@
 </head>
 <body>
 
-    <!-- STAGE 1 & 2: CONTAINER FOR INTERACTIVE DECONSTRUCTION -->
     <div class="scroll-container">
         <div class="viewport-wrapper">
 
-            <!-- Hero Intro Section (Shrinks smoothly away) -->
             <div class="ferrari-hero" id="heroScreen">
                 <div class="hero-content">
-                    <!-- Referencing direct repository file asset -->
-                    <img src="DR_Pipette.webp" alt="Dr. Pipette Logo" class="hero-logo">
+                    <img src="./DR_Pipette.webp" alt="Dr. Pipette" class="hero-logo">
                     <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
                     <div class="scroll-hint">Scroll Down to Deconstruct</div>
                 </div>
             </div>
 
-            <!-- Interactive HUD Dashboard Frame -->
             <div class="interactive-screen" id="popupScreen">
                 <div class="screen-header">
                     <h2>ANALYTICAL INTERFACE MATRIX</h2>
@@ -556,10 +550,8 @@
         </div>
     </div>
 
-    <!-- STAGE 3: CONTINUOUS SCROLL SHOWROOM WEBPAGE -->
     <div class="extended-content">
         
-        <!-- Fleet Grid Showcase -->
         <h2 class="section-title">THE 2026 <span>INSTRUMENT LINE</span></h2>
         <div class="fleet-grid">
             <div class="fleet-card">
@@ -590,7 +582,6 @@
             </div>
         </div>
 
-        <!-- LAB INSTRUMENT MATRIX GRID -->
         <h2 class="section-title">LABORATORY <span>ECOSYSTEM SYSTEMS</span></h2>
         
         <div class="instrument-matrix-section">
@@ -631,13 +622,11 @@
 
     </div>
 
-    <!-- FRAME FOOTER WITH EASTER EGG -->
     <footer class="science-footer">
         <p>&copy; 2026 Dr. Pipette | Quantum Laboratory Instrument Layouts.</p>
         <p class="easter-egg">Diagnostic Sync: Verified // Volumetric Drift Index: &plusmn;0.000000% // Ambient core lock: Absolute Zero (0 Kelvin Activeout) // Hidden file matrix online.</p>
     </footer>
 
-    <!-- INTERACTIVE ENGINE LOGIC -->
     <script>
         const heroScreen = document.getElementById('heroScreen');
         const popupScreen = document.getElementById('popupScreen');
