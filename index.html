@@ -43,7 +43,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.95)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.95)), 
                         url('https://images.unsplash.com/photo-1532187863486-abf9d39d6618?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -61,6 +61,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            padding: 0 20px;
         }
 
         /* 🎬 Slow Elegant Entrance for DR_Pipette.webp Logo */
@@ -72,7 +74,6 @@
             opacity: 0;
             transform: translateY(30px);
             animation: logoEntrance 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.1));
         }
 
         .hero-tagline {
@@ -96,6 +97,7 @@
             font-size: 0.85rem;
             opacity: 0;
             animation: elementFadeIn 1.5s ease-out 1.4s forwards;
+            cursor: default;
         }
 
         /* Interactive Screen Dashboard */
@@ -272,7 +274,6 @@
         .metric-value span {
             color: #E30613;
         }
-
 
         /* --- STAGE 3: CONTINUOUS EXTENDED WEBPAGE CONTENT --- */
         .extended-content {
@@ -490,8 +491,8 @@
             <!-- Hero Intro Section (Shrinks smoothly away) -->
             <div class="ferrari-hero" id="heroScreen">
                 <div class="hero-content">
-                    <!-- Loaded dynamically via your native webp asset code container -->
-                    <img src="DR_Pipette.webp" alt="Dr. Pipette" class="hero-logo">
+                    <!-- Referencing direct repository file asset -->
+                    <img src="DR_Pipette.webp" alt="Dr. Pipette Logo" class="hero-logo">
                     <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
                     <div class="scroll-hint">Scroll Down to Deconstruct</div>
                 </div>
