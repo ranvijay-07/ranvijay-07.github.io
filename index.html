@@ -17,12 +17,17 @@
             font-family: 'Montserrat', sans-serif;
             color: #ffffff;
             overflow-x: hidden;
-            height: 300vh; /* Extra height to allow room for the smooth zoom/shrink effect */
         }
 
-        /* 🏎️ Cinematic Wrapper to clip the minimizing animation */
+        /* --- STAGE 1 & 2: INTRO & INTERACTIVE PINNED SECTION --- */
+        .scroll-container {
+            position: relative;
+            height: 250vh; /* Gives room for the shrink and explore interaction */
+            background-color: #050505;
+        }
+
         .viewport-wrapper {
-            position: fixed;
+            position: sticky;
             top: 0;
             left: 0;
             width: 100vw;
@@ -31,7 +36,7 @@
             overflow: hidden;
         }
 
-        /* Hero Banner - This will shrink/minimize as you scroll */
+        /* Hero Banner - Minimizes on Scroll */
         .ferrari-hero {
             position: absolute;
             top: 0;
@@ -46,7 +51,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            transition: transform 0.1s linear, opacity 0.1s linear, border-radius 0.2s;
+            transition: transform 0.1s linear, opacity 0.1s linear;
             transform-origin: center center;
             z-index: 2;
         }
@@ -74,10 +79,9 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-size: 0.9rem;
-            animation: pulse 2s infinite;
         }
 
-        /* 📊 The Popup Interactive Screen (Reveals from underneath) */
+        /* Interactive Screen (Revealed underneath) */
         .interactive-screen {
             position: absolute;
             top: 0;
@@ -98,11 +102,11 @@
 
         .screen-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .screen-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 900;
             letter-spacing: 2px;
             margin: 0;
@@ -114,7 +118,6 @@
             margin-top: 10px;
         }
 
-        /* Interactive Interface Grid */
         .lab-interface {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -124,11 +127,10 @@
             align-items: center;
         }
 
-        /* Left Side: Dynamic Visual Window */
         .pipette-display-panel {
             background-color: #141414;
             border: 1px solid #222;
-            height: 400px;
+            height: 380px;
             border-radius: 6px;
             position: relative;
             overflow: hidden;
@@ -138,8 +140,8 @@
         }
 
         .pipette-graphic {
-            width: 120px;
-            height: 300px;
+            width: 100px;
+            height: 280px;
             background: linear-gradient(135deg, #333, #111);
             border-radius: 10px;
             position: relative;
@@ -147,7 +149,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* Volume Display window on the pipette */
         .volume-lcd {
             position: absolute;
             top: 40px;
@@ -157,14 +158,13 @@
             border: 1px solid #444;
             padding: 5px 10px;
             font-family: monospace;
-            color: #00ff66; /* Science Matrix Green */
+            color: #00ff66;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
             text-shadow: 0 0 5px #00ff66;
         }
 
-        /* Right Side: Tab Buttons that trigger info updates */
         .interface-controls {
             display: flex;
             flex-direction: column;
@@ -175,7 +175,7 @@
             background-color: #141414;
             border: 1px solid #222;
             color: #ffffff;
-            padding: 20px;
+            padding: 18px;
             text-align: left;
             cursor: pointer;
             border-radius: 4px;
@@ -184,13 +184,11 @@
 
         .control-tab:hover {
             border-color: #ffffff;
-            background-color: #1a1a1a;
         }
 
         .control-tab.active {
             border-left: 5px solid #E30613;
             background-color: #1c1c1c;
-            border-color: #333;
         }
 
         .control-tab h3 {
@@ -202,81 +200,211 @@
             margin: 0;
             color: #aaaaaa;
             font-size: 0.85rem;
-            display: none; /* Hidden by default, reveals when active */
+            display: none;
         }
 
         .control-tab.active p {
             display: block;
         }
 
-        /* Hidden Science Easter Egg Status Line */
-        .system-ticker {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.7rem;
-            color: #161616;
-            cursor: default;
-            user-select: none;
-            transition: color 0.5s;
-        }
-        .system-ticker:hover {
-            color: #00ff66;
+
+        /* --- STAGE 3: BRAND NEW CONTINUOUS SCROLL CONTENT --- */
+        .extended-content {
+            position: relative;
+            z-index: 10; /* Sits directly on top of the fixed wrapper once you scroll past it */
+            background-color: #050505;
+            padding: 100px 5%;
+            border-top: 1px solid #151515;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.03); opacity: 1; border-color: #E30613; }
-            100% { transform: scale(1); opacity: 0.8; }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: #E30613;
+        }
+
+        /* Product Fleet Showcase Grid */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto 100px auto;
+        }
+
+        .fleet-card {
+            background-color: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .fleet-card:hover {
+            border-color: #E30613;
+            transform: translateY(-5px);
+        }
+
+        .fleet-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-color: #111;
+        }
+
+        .fleet-info {
+            padding: 30px;
+        }
+
+        .fleet-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .fleet-info p {
+            color: #888;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .ferrari-link-btn {
+            display: inline-block;
+            background-color: #E30613;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+
+        .ferrari-link-btn:hover {
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        /* Footer & Easter Egg */
+        .science-footer {
+            background-color: #020202;
+            padding: 60px 20px;
+            text-align: center;
+            color: #444;
+            font-size: 0.85rem;
+            border-top: 1px solid #111;
+        }
+
+        .easter-egg {
+            margin-top: 25px !important;
+            font-size: 0.75rem;
+            color: #0b0b0b; /* Blends perfectly with total darkness */
+            transition: color 0.5s, text-shadow 0.5s;
+            cursor: default;
+            user-select: none;
+        }
+
+        .easter-egg:hover {
+            color: #00ff66;
+            text-shadow: 0 0 8px #00ff66;
         }
     </style>
 </head>
 <body>
 
-    <div class="viewport-wrapper">
+    <div class="scroll-container">
+        <div class="viewport-wrapper">
 
-        <div class="ferrari-hero" id="heroScreen">
-            <div class="hero-content">
-                <h1 class="hero-title">DR. PIPETTE</h1>
-                <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
-                <div class="scroll-hint">Scroll Down to Deconstruct</div>
-            </div>
-        </div>
-
-        <div class="interactive-screen" id="popupScreen">
-            <div class="screen-header">
-                <h2>MICROPIDETTE CORE ARCHITECTURE</h2>
-                <p>Click the system modules below to run diagnostics</p>
-            </div>
-
-            <div class="lab-interface">
-                <div class="pipette-display-panel">
-                    <div class="pipette-graphic" id="pipetteVisual">
-                        <div class="volume-lcd" id="lcdDisplay">100.0 μL</div>
-                    </div>
-                </div>
-
-                <div class="interface-controls">
-                    <div class="control-tab active" onclick="activateModule(this, '100.0 μL', 'scale(1)')">
-                        <h3>01. Plunger System</h3>
-                        <p>High-elasticity spring mechanics optimized for frictionless stroke operations. Reduces hand strain during high-throughput sequencing sessions.</p>
-                    </div>
-                    <div class="control-tab" onclick="activateModule(this, '500.0 μL', 'scale(1.1) rotate(5deg)')">
-                        <h3>02. Volume Adjustment Dial</h3>
-                        <p>Lockable click-stop counter system preventing accidental volume drift. Calibrated perfectly to meet ISO 8655 requirements.</p>
-                    </div>
-                    <div class="control-tab" onclick="activateModule(this, '1000 μL', 'translateY(15px) scale(0.95)')">
-                        <h3>03. Tip Ejector Assembly</h3>
-                        <p>Ergonomically placed push-button ejector system linked with shock-absorbers to cleanly discard universal tips with minimal effort.</p>
-                    </div>
+            <div class="ferrari-hero" id="heroScreen">
+                <div class="hero-content">
+                    <h1 class="hero-title">DR. PIPETTE</h1>
+                    <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
+                    <div class="scroll-hint">Keep Scrolling Down</div>
                 </div>
             </div>
 
-            <div class="system-ticker">
-                CORE: ACTIVE // CALIBRATION OFFSET: 0.0000% // VACUUM SEAL: CONSTANT // ABSOLUTE ZERO ENGINE STABLE.
-            </div>
-        </div>
+            <div class="interactive-screen" id="popupScreen">
+                <div class="screen-header">
+                    <h2>MICROPIDETTE ARCHITECTURE</h2>
+                    <p>Select a system module to initialize structural analysis</p>
+                </div>
 
+                <div class="lab-interface">
+                    <div class="pipette-display-panel">
+                        <div class="pipette-graphic" id="pipetteVisual">
+                            <div class="volume-lcd" id="lcdDisplay">100.0 μL</div>
+                        </div>
+                    </div>
+
+                    <div class="interface-controls">
+                        <div class="control-tab active" onclick="activateModule(this, '100.0 μL', 'scale(1)')">
+                            <h3>01. Plunger Mechanics</h3>
+                            <p>Frictionless magnetic-assisted piston operations calibrated for fatigue-free diagnostic cycles.</p>
+                        </div>
+                        <div class="control-tab" onclick="activateModule(this, '500.0 μL', 'scale(1.1) rotate(4deg)')">
+                            <h3>02. Digital Volume Counter</h3>
+                            <p>Mechanical click-lock interface ensuring continuous alignment with no micrometer deviation.</p>
+                        </div>
+                        <div class="control-tab" onclick="activateModule(this, '1000 μL', 'translateY(15px) scale(0.95)')">
+                            <h3>03. Shock-Absorbing Ejector</h3>
+                            <p>Corrosion-resistant ejection layout built to dynamically break tip friction fields instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+    <div class="extended-content">
+        <h2 class="section-title">THE 2026 <span>FLEET</span></h2>
+
+        <div class="fleet-grid">
+            <div class="fleet-card">
+                <div class="fleet-img" style="background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="fleet-info">
+                    <h3>MONO-CHANNEL V1</h3>
+                    <p>Designed for ultra-precise micro-volume titrations. True linear delivery mapping across all fluid viscosity thresholds.</p>
+                    <a href="#" class="ferrari-link-btn">CONFIGURATOR &rarr;</a>
+                </div>
+            </div>
+
+            <div class="fleet-card">
+                <div class="fleet-img" style="background-image: url('https://images.unsplash.com/photo-1617155093730-a8bf47be792d?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="fleet-info">
+                    <h3>POLY-CHANNEL X12</h3>
+                    <p>Multi-channel replication array supporting dense 96-well mapping simultaneously without speed drops.</p>
+                    <a href="#" class="ferrari-link-btn">CONFIGURATOR &rarr;</a>
+                </div>
+            </div>
+
+            <div class="fleet-card">
+                <div class="fleet-img" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="fleet-info">
+                    <h3>CALIBRATION SYSTEMS</h3>
+                    <p>Automated ISO dynamic calibration matrices to recalibrate mechanical tolerances instantly on-site.</p>
+                    <a href="#" class="ferrari-link-btn">REQUEST ACCESS &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">ENGINEERING <span>SPECIFICATIONS</span></h2>
+        <div style="max-width: 800px; margin: 0 auto; color: #888; line-height: 1.8; font-size: 1.1rem; text-align: center; padding-bottom: 50px;">
+            Every single instrument we produce undergoes severe gravimetric tracking procedures using distilled aqua-dest matrix elements. Zero mechanical assembly variance is permitted. Absolute accuracy is monitored down to $\pm0.02\%$.
+        </div>
+    </div>
+
+    <footer class="science-footer">
+        <p>&copy; 2026 Dr. Pipette | High-Precision Laboratory Systems.</p>
+        <p class="easter-egg">Diagnostic Status: Operational // Current Error Threshold: &plusmn;0.00000&mu;L // Core Temp: 0 Kelvin (Absolute Zero Lock Active) // Hover triggered.</p>
+    </footer>
 
     <script>
         const heroScreen = document.getElementById('heroScreen');
@@ -285,49 +413,31 @@
         const lcdDisplay = document.getElementById('lcdDisplay');
 
         window.addEventListener('scroll', () => {
-            // Calculate how far down the page the cursor has scrolled (0 to 1 range)
-            let scrollFactor = window.scrollY / (window.innerHeight * 1.5);
-            if (scrollFactor > 1) scrollFactor = 1;
-            if (scrollFactor < 0) scrollFactor = 0;
+            // Monitor scroll position relative to the viewport height
+            let scrollFactor = window.scrollY / window.innerHeight;
+            
+            // Handle Stage 1 & 2 transition values (Cap calculations at factor 1)
+            let factor = Math.min(Math.max(scrollFactor, 0), 1);
 
-            // 1. MINIMIZE HERO SCREEN: Scale down down to 70%, fade opacity, round corners
-            let heroScale = 1 - (scrollFactor * 0.3); 
-            let heroOpacity = 1 - (scrollFactor * 1.2);
-            let borderRadius = (scrollFactor * 40) + 'px';
-
+            // Shrink Header out smoothly
+            let heroScale = 1 - (factor * 0.25);
+            let heroOpacity = 1 - (factor * 1.3);
             heroScreen.style.transform = `scale(${heroScale})`;
             heroScreen.style.opacity = heroOpacity;
-            heroScreen.style.borderRadius = borderRadius;
 
-            // 2. POPUP UNDERNEATH SCREEN: Fade in and gently scale back to true 100% size
-            let popupScale = 1.1 - (scrollFactor * 0.1);
-            let popupOpacity = scrollFactor * 1.5;
-
+            // Bring Dashboard screen up underneath smoothly
+            let popupScale = 1.1 - (factor * 0.1);
+            let popupOpacity = factor * 1.5;
             popupScreen.style.transform = `scale(${popupScale})`;
             popupScreen.style.opacity = popupOpacity;
 
-            // Toggle visibility interaction layers based on depth
-            if(scrollFactor > 0.8) {
+            // Ensure cursor clicks ignore the header once completely hidden
+            if(factor > 0.85) {
                 heroScreen.style.pointerEvents = 'none';
             } else {
                 heroScreen.style.pointerEvents = 'all';
             }
         });
 
-        // Interactive Sidebar Module Engine
+        // Tab click interactive logic
         function activateModule(element, volumeText, transformStyle) {
-            // Reset all modules
-            document.querySelectorAll('.control-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Activate clicked module
-            element.classList.add('active');
-            
-            // Dynamically alter the hardware display graphic on the left
-            lcdDisplay.innerText = volumeText;
-            pipetteVisual.style.transform = transformStyle;
-        }
-    </script>
-</body>
-</html>
