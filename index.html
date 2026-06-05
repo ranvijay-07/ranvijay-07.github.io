@@ -13,13 +13,13 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #030303;
+            background-color: #020204;
             font-family: 'Montserrat', sans-serif;
             color: #ffffff;
             overflow-x: hidden;
         }
 
-        /* 🌌 SCIENTIFIC MOVING BACKGROUND CANVAS */
+        /* 🌌 HIGH-BRIGHTNESS QUANTUM PLEXUS BACKGROUND */
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -27,8 +27,8 @@
             width: 100vw;
             height: 100vh;
             z-index: 0;
-            pointer-events: none; /* Allows user to click items through the background */
-            opacity: 0.6;
+            pointer-events: none;
+            opacity: 0.85; /* Increased brightness exposure */
         }
 
         /* --- STAGE 1 & 2: INTRO & INTERACTIVE PINNED MATRIX --- */
@@ -55,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(3, 3, 3, 0.4), rgba(3, 3, 3, 0.85));
+            background: linear-gradient(rgba(2, 2, 4, 0.2), rgba(2, 2, 4, 0.7));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,11 +74,11 @@
             padding: 0 20px;
         }
 
-        /* Logo Container & Animation */
+        /* Logo Element Array */
         .logo-wrapper {
             max-width: 650px;
             width: 85%;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             opacity: 0;
             transform: translateY(30px);
             animation: logoEntrance 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -91,35 +91,38 @@
             width: 100%;
             height: auto;
             display: block;
+            filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.4));
         }
 
-        /* High-End Text Fallback if image asset is missing */
+        /* High-End Text Fallback with intense bright text shadows */
         .text-fallback-logo {
             display: none;
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 900;
             letter-spacing: -1px;
             color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(0, 243, 255, 0.8);
         }
         .text-fallback-logo span {
-            color: #E30613; /* Ferrari Red */
+            color: #E30613;
+            text-shadow: 0 0 20px rgba(227, 6, 19, 0.8);
         }
 
         .hero-tagline {
-            color: #E30613; 
-            font-size: 1.6rem;
+            color: #00f3ff; /* Electric Neon Cyan */
+            font-size: 1.5rem;
             font-weight: 700;
-            letter-spacing: 4px;
-            margin: 15px 0 40px 0;
+            letter-spacing: 6px;
+            margin: 20px 0 40px 0;
             opacity: 0;
             transform: translateY(20px);
             animation: elementFadeIn 1.5s ease-out 1s forwards;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
         }
 
         .scroll-hint {
-            border: 2px solid #ffffff;
-            color: #ffffff;
+            border: 2px solid #00f3ff;
+            color: #00f3ff;
             padding: 14px 35px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -128,6 +131,9 @@
             opacity: 0;
             animation: elementFadeIn 1.5s ease-out 1.4s forwards;
             cursor: default;
+            background: rgba(0, 243, 255, 0.05);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            transition: all 0.3s;
         }
 
         /* Interactive Screen Dashboard */
@@ -137,8 +143,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(7, 7, 7, 0.85);
-            backdrop-filter: blur(10px); /* Futuristic blurred screen depth */
+            background-color: rgba(4, 4, 8, 0.8);
+            backdrop-filter: blur(15px);
             z-index: 1;
             opacity: 0;
             transform: scale(1.1);
@@ -150,16 +156,12 @@
             padding: 40px;
         }
 
-        .screen-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
         .screen-header h2 {
             font-size: 2.3rem;
             font-weight: 900;
             letter-spacing: 2px;
             margin: 0;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
         .screen-header p {
@@ -168,6 +170,7 @@
             font-size: 0.95rem;
             margin-top: 8px;
             letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(227, 6, 19, 0.4);
         }
 
         /* Master Lab Grid Interface */
@@ -177,15 +180,14 @@
             gap: 25px;
             max-width: 1400px;
             width: 100%;
-            align-items: stretch;
         }
 
         .pipette-display-panel {
-            background-color: rgba(13, 13, 13, 0.8);
-            border: 1px solid #222;
+            background-color: rgba(10, 10, 18, 0.85);
+            border: 1px solid #00f3ff;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
             border-radius: 4px;
             position: relative;
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -195,10 +197,11 @@
         .pipette-graphic {
             width: 90px;
             height: 260px;
-            background: linear-gradient(135deg, #252525, #0a0a0a);
+            background: linear-gradient(135deg, #202030, #05050a);
             border-radius: 8px;
             position: relative;
             border: 2px solid #E30613;
+            box-shadow: 0 0 15px rgba(227, 6, 19, 0.4);
             transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
@@ -208,14 +211,14 @@
             left: 50%;
             transform: translateX(-50%);
             background-color: #000;
-            border: 1px solid #333;
+            border: 1px solid #00ff66;
             padding: 6px 12px;
             font-family: 'Share Tech Mono', monospace;
             color: #00ff66;
             font-weight: bold;
             font-size: 1.2rem;
-            letter-spacing: 1px;
-            text-shadow: 0 0 6px #00ff66;
+            text-shadow: 0 0 8px #00ff66;
+            box-shadow: inset 0 0 8px rgba(0,255,102,0.3);
         }
 
         .interface-controls {
@@ -226,25 +229,28 @@
         }
 
         .control-tab {
-            background-color: rgba(13, 13, 13, 0.8);
-            border: 1px solid #222;
+            background-color: rgba(10, 10, 18, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
             padding: 20px;
-            text-align: left;
             cursor: pointer;
             border-radius: 4px;
             transition: all 0.3s ease;
         }
 
         .control-tab:hover {
-            border-color: #444;
-            background-color: #121212;
+            border-color: #00f3ff;
+            background-color: rgba(20, 20, 35, 0.8);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
         }
 
         .control-tab.active {
             border-left: 4px solid #E30613;
-            background-color: rgba(20, 20, 20, 0.9);
-            border-color: #333;
+            border-right: 1px solid #00f3ff;
+            border-top: 1px solid #00f3ff;
+            border-bottom: 1px solid #00f3ff;
+            background-color: rgba(15, 15, 28, 0.9);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
         }
 
         .control-tab h3 {
@@ -255,7 +261,7 @@
 
         .control-tab p {
             margin: 0;
-            color: #888;
+            color: #aaa;
             font-size: 0.85rem;
             line-height: 1.5;
             display: none;
@@ -266,8 +272,8 @@
         }
 
         .telemetry-panel {
-            background-color: rgba(13, 13, 13, 0.8);
-            border: 1px solid #222;
+            background-color: rgba(10, 10, 18, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 25px;
             border-radius: 4px;
             font-family: 'Share Tech Mono', monospace;
@@ -278,20 +284,12 @@
 
         .telemetry-title {
             font-size: 0.9rem;
-            color: #666;
+            color: #00f3ff;
             letter-spacing: 2px;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
             padding-bottom: 8px;
             margin: 0;
-        }
-
-        .metric-row {
-            margin: 15px 0;
-        }
-
-        .metric-label {
-            font-size: 0.8rem;
-            color: #999;
+            text-shadow: 0 0 5px rgba(0, 243, 255, 0.4);
         }
 
         .metric-value {
@@ -303,14 +301,15 @@
             color: #E30613;
         }
 
-        /* --- STAGE 3: CONTINUOUS EXTENDED WEBPAGE CONTENT --- */
+        /* --- STAGE 3: BRAND-NEW CONTINUOUS SHOWROOM CONTENT --- */
         .extended-content {
             position: relative;
             z-index: 10;
-            background-color: rgba(3, 3, 3, 0.75);
-            backdrop-filter: blur(12px); /* Content sections glassmorphism */
+            background-color: rgba(2, 2, 5, 0.7);
+            backdrop-filter: blur(20px);
             padding: 120px 5%;
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid #00f3ff;
+            box-shadow: 0 -20px 40px rgba(0, 243, 255, 0.05);
         }
 
         .section-title {
@@ -318,11 +317,95 @@
             font-size: 2.8rem;
             font-weight: 900;
             letter-spacing: 3px;
-            margin-bottom: 80px;
+            margin-bottom: 20px;
+        }
+        .section-title span {
+            color: #00f3ff;
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
         }
 
-        .section-title span {
-            color: #E30613;
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 80px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* 🔬 NEW POST-SCROLL COMPONENT: FLUID WAVE CHAMBER INTERACTIVE */
+        .chamber-simulator-section {
+            max-width: 1400px;
+            margin: 0 auto 120px auto;
+            background: rgba(10, 10, 20, 0.8);
+            border: 1px solid #E30613;
+            box-shadow: 0 0 25px rgba(227, 6, 19, 0.15);
+            border-radius: 8px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .canvas-frame {
+            position: relative;
+            background: #040408;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            height: 300px;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        #fluid-chamber-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .chamber-hint {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Share Tech Mono', monospace;
+            color: rgba(0, 243, 255, 0.6);
+            font-size: 0.8rem;
+            pointer-events: none;
+            letter-spacing: 1px;
+        }
+
+        .chamber-info h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            color: #ffffff;
+        }
+
+        .chamber-info p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .inject-btn {
+            background: transparent;
+            border: 2px solid #E30613;
+            color: #ffffff;
+            padding: 15px 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(227, 6, 19, 0.2);
+            transition: all 0.3s;
+        }
+        .inject-btn:hover {
+            background: #E30613;
+            box-shadow: 0 0 25px rgba(227, 6, 19, 0.6);
         }
 
         /* Product Fleet Gallery Grid */
@@ -335,17 +418,17 @@
         }
 
         .fleet-card {
-            background-color: rgba(11, 11, 11, 0.85);
-            border: 1px solid #1c1c1c;
+            background-color: rgba(10, 10, 18, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 4px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .fleet-card:hover {
-            border-color: #E30613;
+            border-color: #00f3ff;
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(227, 6, 19, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 243, 255, 0.2);
         }
 
         .fleet-img {
@@ -353,28 +436,27 @@
             background-size: cover;
             background-position: center;
             background-color: #111;
-            filter: grayscale(20%);
-            transition: filter 0.4s;
+            filter: grayscale(40%) brightness(80%);
+            transition: all 0.4s;
         }
 
         .fleet-card:hover .fleet-img {
-            filter: grayscale(0%);
+            filter: grayscale(0%) brightness(100%);
         }
 
         .fleet-info {
             padding: 35px;
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .fleet-info h3 {
             margin: 0 0 12px 0;
             font-size: 1.4rem;
-            font-weight: 700;
             letter-spacing: 1px;
         }
 
         .fleet-info p {
-            color: #777;
+            color: #888;
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 30px;
@@ -393,8 +475,9 @@
         }
 
         .ferrari-link-btn:hover {
-            background-color: #ffffff;
+            background-color: #00f3ff;
             color: #000;
+            box-shadow: 0 0 15px #00f3ff;
         }
 
         /* --- IMMERSIVE ADVANCED INSTRUMENTS PHOTO MATRIX --- */
@@ -415,7 +498,7 @@
             position: relative;
             border-radius: 4px;
             overflow: hidden;
-            border: 1px solid #1c1c1c;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .matrix-bg {
@@ -435,53 +518,23 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            background: linear-gradient(transparent, rgba(2,2,6,0.95));
             padding: 25px;
-            transition: opacity 0.3s;
         }
 
-        .matrix-overlay h4 {
-            margin: 0 0 5px 0;
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .matrix-overlay p {
-            margin: 0;
-            color: #E30613;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .span-large {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        .span-vertical {
-            grid-row: span 2;
-        }
+        .span-large { grid-column: span 2; grid-row: span 2; }
+        .span-vertical { grid-row: span 2; }
 
         /* Footer Frame */
         .science-footer {
-            background-color: #010101;
+            background-color: #040408;
             padding: 70px 20px;
             text-align: center;
-            color: #3a3a3a;
+            color: #444;
             font-size: 0.85rem;
-            border-top: 1px solid #111;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
             z-index: 10;
-        }
-
-        .easter-egg {
-            margin-top: 25px !important;
-            font-size: 0.75rem;
-            color: #050505;
-            transition: color 0.5s, text-shadow 0.5s;
-            cursor: default;
-            user-select: none;
         }
 
         .easter-egg:hover {
@@ -491,42 +544,25 @@
 
         /* Animation Timings */
         @keyframes logoEntrance {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes elementFadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🌌 SCIENTIFIC MOVING BACKGROUND NODES -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- STAGE 1 & 2: CONTAINER FOR INTERACTIVE DECONSTRUCTION -->
     <div class="scroll-container">
         <div class="viewport-wrapper">
 
-            <!-- Hero Intro Section -->
             <div class="ferrari-hero" id="heroScreen">
                 <div class="hero-content">
                     <div class="logo-wrapper">
-                        <!-- Smart Image Loader with fallback sequences -->
                         <img src="DR_Pipette.webp" alt="Dr. Pipette" class="hero-logo" id="mainLogoAsset">
                         <div class="text-fallback-logo" id="textLogoAsset">DR. <span>PIPETTE</span></div>
                     </div>
@@ -535,7 +571,6 @@
                 </div>
             </div>
 
-            <!-- Interactive HUD Dashboard Frame -->
             <div class="interactive-screen" id="popupScreen">
                 <div class="screen-header">
                     <h2>ANALYTICAL INTERFACE MATRIX</h2>
@@ -593,11 +628,26 @@
         </div>
     </div>
 
-    <!-- STAGE 3: CONTINUOUS SCROLL SHOWROOM WEBPAGE -->
     <div class="extended-content">
         
-        <!-- Fleet Grid Showcase -->
+        <h2 class="section-title">DYNAMIC <span>LAB ENVIRONMENT</span></h2>
+        <p class="section-subtitle">Real-Time Fluid Calibration Diagnostic Chamber</p>
+
+        <div class="chamber-simulator-section">
+            <div class="canvas-frame" id="canvasFrameTarget">
+                <canvas id="fluid-chamber-canvas"></canvas>
+                <div class="chamber-hint">// CLICK INSIDE CHAMBER TO INJECT VOLUMETRIC LIQUID DROPS</div>
+            </div>
+            <div class="chamber-info">
+                <h3>Microfluidic Wave Testing</h3>
+                <p>Test hydro-pressure fluctuations across a simulated optical channel. Click inside the digital chamber workspace to spawn localized, high-velocity displacement arrays.</p>
+                <button class="inject-btn" onclick="triggerChamberBurst()">Pulse Core Calibrator</button>
+            </div>
+        </div>
+
         <h2 class="section-title">THE 2026 <span>INSTRUMENT LINE</span></h2>
+        <p class="section-subtitle">Premium Liquid Handling Infrastructure</p>
+
         <div class="fleet-grid">
             <div class="fleet-card">
                 <div class="fleet-img" style="background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80');"></div>
@@ -627,162 +677,78 @@
             </div>
         </div>
 
-        <!-- LAB INSTRUMENT MATRIX GRID -->
-        <h2 class="section-title">LABORATORY <span>ECOSYSTEM SYSTEMS</span></h2>
-        
-        <div class="instrument-matrix-section">
-            <div class="matrix-grid">
-                <div class="matrix-item span-large">
-                    <div class="matrix-bg" style="background-image: url('https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=1000&q=80');"></div>
-                    <div class="matrix-overlay">
-                        <h4>HIGH-RESOLUTION PHOTOMETER MATRIX</h4>
-                        <p>NODE ID // OPTICAL.SPECTRO.77</p>
-                    </div>
-                </div>
-
-                <div class="matrix-item span-vertical">
-                    <div class="matrix-bg" style="background-image: url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="matrix-overlay">
-                        <h4>HIGH-SPEED ROTATION CENTRIFUGE</h4>
-                        <p>NODE ID // KINETIC.SPIN.04</p>
-                    </div>
-                </div>
-
-                <div class="matrix-item">
-                    <div class="matrix-bg" style="background-image: url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="matrix-overlay">
-                        <h4>CHROMATOGRAPHY VALVES</h4>
-                        <p>NODE ID // FLUID.SEPARATE.99</p>
-                    </div>
-                </div>
-
-                <div class="matrix-item">
-                    <div class="matrix-bg" style="background-image: url('https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="matrix-overlay">
-                        <h4>THERMAL SAMPLE AMPLIFIERS</h4>
-                        <p>NODE ID // THERMO.AMPLI.104</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <!-- FRAME FOOTER WITH EASTER EGG -->
     <footer class="science-footer">
         <p>&copy; 2026 Dr. Pipette | Quantum Laboratory Instrument Layouts.</p>
-        <p class="easter-egg">Diagnostic Sync: Verified // Volumetric Drift Index: &plusmn;0.000000% // Ambient core lock: Absolute Zero (0 Kelvin Activeout) // Hidden file matrix online.</p>
     </footer>
 
-    <!-- INTERACTIVE ENGINE & SCATTER MATRIX SYSTEM -->
     <script>
         // --- 🛠️ AUTOMATED LINK RECOVERY SYSTEM ---
         const mainLogo = document.getElementById('mainLogoAsset');
         const textLogo = document.getElementById('textLogoAsset');
-        
-        const variations = ['dr_pipette.webp', 'DR_Pipette.png', 'dr_pipette.png', 'DR_Pipette.jpg', 'logo.webp', 'logo.png'];
-        let currentTry = 0;
-
         mainLogo.onerror = function() {
-            if (currentTry < variations.length) {
-                this.src = variations[currentTry++];
-            } else {
-                this.style.display = 'none';
-                textLogo.style.display = 'block';
-            }
+            this.style.display = 'none';
+            textLogo.style.display = 'block';
         };
 
-        // --- 🌌 VANILLA SCIENTIFIC PARTICLES ENGINE ---
+        // --- 🌌 DYNAMIC BRIGHT NEON PLEXUS BACKGROUND ENGINE ---
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
-
         let particlesArray = [];
-        const numberOfParticles = 85; // Optimized for performance, zero lag across mobile & desktop
-        
-        // Track user mouse coordinates for interactive connection pulls
-        const mouse = {
-            x: null,
-            y: null,
-            radius: 150
-        };
+        const mouse = { x: null, y: null, radius: 180 };
 
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
-        });
+        window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+        function resizeBg() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        resizeBg(); window.addEventListener('resize', resizeBg);
 
-        window.addEventListener('mouseout', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-
-        // Set dimensions cleanly
-        function initCanvasSize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        initCanvasSize();
-        window.addEventListener('resize', initCanvasSize);
-
-        // Particle blueprints
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() * 0.6) - 0.3; // Gentle drifting speed parameters
-                this.vy = (Math.random() * 0.6) - 0.3;
-                this.radius = Math.random() * 2.5 + 1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(227, 6, 19, 0.7)'; // Ferrari Red Accent Nodes
-                ctx.fill();
+                this.vx = (Math.random() * 1.2) - 0.6; // Slightly faster drift
+                this.vy = (Math.random() * 1.2) - 0.6;
+                this.radius = Math.random() * 3 + 1.5; // Larger nodes
+                this.color = Math.random() > 0.4 ? '#00f3ff' : '#E30613'; // Neon Cyan or Ferrari Red
             }
             update() {
-                // Keep nodes drifting smoothly inside screen borders
                 if (this.x > canvas.width || this.x < 0) this.vx = -this.vx;
                 if (this.y > canvas.height || this.y < 0) this.vy = -this.vy;
-                
-                this.x += this.vx;
-                this.y += this.vy;
+                this.x += this.vx; this.y += this.vy;
 
-                // Interactive Mouse tracking: subtle gravitational magnet pull
                 if (mouse.x != null && mouse.y != null) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < mouse.radius) {
-                        this.x += dx * 0.01;
-                        this.y += dy * 0.01;
+                    let dx = mouse.x - this.x; let dy = mouse.y - this.y;
+                    let dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < mouse.radius) {
+                        this.x += dx * 0.02; this.y += dy * 0.02; // Stronger magnet pull
                     }
                 }
-                this.draw();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10; // High-glow brightness mechanics
+                ctx.shadowColor = this.color;
+                ctx.fill();
             }
         }
 
-        // Generate matrix array
-        function populateMatrix() {
-            particlesArray = [];
-            for (let i = 0; i < numberOfParticles; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-        populateMatrix();
+        for(let i=0; i<75; i++) particlesArray.push(new Particle());
 
-        // Connect proximity elements with tech matrix array lines
-        function connectNodes() {
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
+        function drawPlexus() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.globalCompositeOperation = 'screen'; // Creates dazzling bright overlays when lines cross
+            for(let i=0; i<particlesArray.length; i++) particlesArray[i].update();
+
+            for(let a=0; a<particlesArray.length; a++) {
+                for(let b=a; b<particlesArray.length; b++) {
                     let dx = particlesArray[a].x - particlesArray[b].x;
                     let dy = particlesArray[a].y - particlesArray[b].y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 115) {
-                        // Smoothly fade out connections based on node distance gap
-                        let opacityFactor = 1 - (distance / 115);
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacityFactor * 0.14})`;
-                        ctx.lineWidth = 0.8;
+                    let dist = Math.sqrt(dx*dx + dy*dy);
+                    if(dist < 130) {
+                        ctx.strokeStyle = `rgba(0, 243, 255, ${1 - (dist/130)})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.shadowBlur = 0; // Clear performance lines
                         ctx.beginPath();
                         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
                         ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
@@ -790,18 +756,76 @@
                     }
                 }
             }
+            requestAnimationFrame(drawPlexus);
+        }
+        drawPlexus();
+
+
+        // --- 🔬 NEW POST-SCROLL ENGINE: FLUID DISPLACEMENT SIMULATOR ---
+        const chamberCanvas = document.getElementById('fluid-chamber-canvas');
+        const cCtx = chamberCanvas.getContext('2d');
+        const frameTarget = document.getElementById('canvasFrameTarget');
+        let waves = [];
+
+        function resizeChamber() {
+            chamberCanvas.width = frameTarget.clientWidth;
+            chamberCanvas.height = frameTarget.clientHeight;
+        }
+        setTimeout(resizeChamber, 200);
+        window.addEventListener('resize', resizeChamber);
+
+        class FluidPulse {
+            constructor(x, y) {
+                this.x = x; this.y = y;
+                this.radius = 1;
+                this.maxRadius = Math.random() * 80 + 120;
+                this.opacity = 1;
+                this.speed = Math.random() * 2 + 3;
+            }
+            update() {
+                this.radius += this.speed;
+                this.opacity = 1 - (this.radius / this.maxRadius);
+                
+                cCtx.beginPath();
+                cCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                cCtx.strokeStyle = `rgba(227, 6, 19, ${this.opacity})`;
+                cCtx.lineWidth = 3;
+                cCtx.stroke();
+
+                cCtx.beginPath();
+                cCtx.arc(this.x, this.y, this.radius * 0.7, 0, Math.PI * 2);
+                cCtx.strokeStyle = `rgba(0, 243, 255, ${this.opacity * 0.5})`;
+                cCtx.lineWidth = 1.5;
+                cCtx.stroke();
+            }
         }
 
-        // Dynamic render engine loop
-        function animateEngine() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-            }
-            connectNodes();
-            requestAnimationFrame(animateEngine);
+        frameTarget.addEventListener('click', (e) => {
+            const bounds = frameTarget.getBoundingClientRect();
+            waves.push(new FluidPulse(e.clientX - bounds.left, e.clientY - bounds.top));
+        });
+
+        function triggerChamberBurst() {
+            waves.push(new FluidPulse(chamberCanvas.width/2, chamberCanvas.height/2));
+            waves.push(new FluidPulse(chamberCanvas.width/2 - 40, chamberCanvas.height/2 + 20));
         }
-        animateEngine();
+
+        function runChamberEngine() {
+            cCtx.fillStyle = 'rgba(4, 4, 8, 0.2)'; // Fluid trail ghosting effect
+            cCtx.fillRect(0, 0, chamberCanvas.width, chamberCanvas.height);
+
+            // Draw stable background data grid inside fluid tank
+            cCtx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            cCtx.lineWidth = 1;
+            for(let i=0; i<chamberCanvas.width; i+=40) {
+                cCtx.beginPath(); cCtx.moveTo(i, 0); cCtx.lineTo(i, chamberCanvas.height); cCtx.stroke();
+            }
+
+            waves = waves.filter(w => w.radius < w.maxRadius);
+            waves.forEach(w => w.update());
+            requestAnimationFrame(runChamberEngine);
+        }
+        runChamberEngine();
 
 
         // --- 🖱️ INTERACTIVE PAGE PARALLAX SCROLLING MECHANICS ---
@@ -816,15 +840,11 @@
             let scrollFactor = window.scrollY / window.innerHeight;
             let factor = Math.min(Math.max(scrollFactor, 0), 1);
 
-            let heroScale = 1 - (factor * 0.22);
-            let heroOpacity = 1 - (factor * 1.3);
-            heroScreen.style.transform = `scale(${heroScale})`;
-            heroScreen.style.opacity = heroOpacity;
+            heroScreen.style.transform = `scale(${1 - (factor * 0.22)})`;
+            heroScreen.style.opacity = 1 - (factor * 1.3);
 
-            let popupScale = 1.1 - (factor * 0.1);
-            let popupOpacity = factor * 1.6;
-            popupScreen.style.transform = `scale(${popupScale})`;
-            popupScreen.style.opacity = popupOpacity;
+            popupScreen.style.transform = `scale(${1.1 - (factor * 0.1)})`;
+            popupScreen.style.opacity = factor * 1.6;
 
             if(factor > 0.85) {
                 heroScreen.style.pointerEvents = 'none';
@@ -834,14 +854,10 @@
         });
 
         function activateModule(element, volumeText, transformStyle, humValue, pressValue) {
-            document.querySelectorAll('.control-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
+            document.querySelectorAll('.control-tab').forEach(tab => tab.classList.remove('active'));
             element.classList.add('active');
-            
             lcdDisplay.innerText = volumeText;
             pipetteVisual.style.transform = transformStyle;
-            
             hudHumidity.innerText = humValue;
             hudPressure.innerText = pressValue;
         }
