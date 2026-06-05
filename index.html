@@ -13,7 +13,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #020204;
+            background-color: #000000; /* Deep pitch black background for maximum glow contrast */
             font-family: 'Montserrat', sans-serif;
             color: #ffffff;
             overflow-x: hidden;
@@ -28,7 +28,7 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.85; /* Increased brightness exposure */
+            opacity: 0.9;
         }
 
         /* --- STAGE 1 & 2: INTRO & INTERACTIVE PINNED MATRIX --- */
@@ -55,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(2, 2, 4, 0.2), rgba(2, 2, 4, 0.7));
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -91,7 +91,14 @@
             width: 100%;
             height: auto;
             display: block;
-            filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.4));
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
+        }
+
+        .hero-logo:hover {
+            transform: scale(1.02);
+            filter: drop-shadow(0 0 25px rgba(0, 243, 255, 0.5));
         }
 
         /* High-End Text Fallback with intense bright text shadows */
@@ -143,7 +150,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(4, 4, 8, 0.8);
+            background-color: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(15px);
             z-index: 1;
             opacity: 0;
@@ -183,7 +190,7 @@
         }
 
         .pipette-display-panel {
-            background-color: rgba(10, 10, 18, 0.85);
+            background-color: rgba(5, 5, 10, 0.9);
             border: 1px solid #00f3ff;
             box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
             border-radius: 4px;
@@ -197,7 +204,7 @@
         .pipette-graphic {
             width: 90px;
             height: 260px;
-            background: linear-gradient(135deg, #202030, #05050a);
+            background: linear-gradient(135deg, #151525, #020205);
             border-radius: 8px;
             position: relative;
             border: 2px solid #E30613;
@@ -229,7 +236,7 @@
         }
 
         .control-tab {
-            background-color: rgba(10, 10, 18, 0.75);
+            background-color: rgba(5, 5, 10, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
             padding: 20px;
@@ -240,7 +247,7 @@
 
         .control-tab:hover {
             border-color: #00f3ff;
-            background-color: rgba(20, 20, 35, 0.8);
+            background-color: rgba(10, 10, 25, 0.85);
             box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
         }
 
@@ -249,7 +256,7 @@
             border-right: 1px solid #00f3ff;
             border-top: 1px solid #00f3ff;
             border-bottom: 1px solid #00f3ff;
-            background-color: rgba(15, 15, 28, 0.9);
+            background-color: rgba(8, 8, 20, 0.95);
             box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
         }
 
@@ -272,7 +279,7 @@
         }
 
         .telemetry-panel {
-            background-color: rgba(10, 10, 18, 0.85);
+            background-color: rgba(5, 5, 10, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 25px;
             border-radius: 4px;
@@ -305,7 +312,7 @@
         .extended-content {
             position: relative;
             z-index: 10;
-            background-color: rgba(2, 2, 5, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(20px);
             padding: 120px 5%;
             border-top: 1px solid #00f3ff;
@@ -333,11 +340,11 @@
             text-transform: uppercase;
         }
 
-        /* 🔬 NEW POST-SCROLL COMPONENT: FLUID WAVE CHAMBER INTERACTIVE */
+        /* 🔬 POST-SCROLL COMPONENT: FLUID WAVE CHAMBER INTERACTIVE */
         .chamber-simulator-section {
             max-width: 1400px;
             margin: 0 auto 120px auto;
-            background: rgba(10, 10, 20, 0.8);
+            background: rgba(5, 5, 12, 0.9);
             border: 1px solid #E30613;
             box-shadow: 0 0 25px rgba(227, 6, 19, 0.15);
             border-radius: 8px;
@@ -350,7 +357,7 @@
 
         .canvas-frame {
             position: relative;
-            background: #040408;
+            background: #000000;
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 4px;
             height: 300px;
@@ -418,7 +425,7 @@
         }
 
         .fleet-card {
-            background-color: rgba(10, 10, 18, 0.85);
+            background-color: rgba(5, 5, 12, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 4px;
             overflow: hidden;
@@ -518,7 +525,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(transparent, rgba(2,2,6,0.95));
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
             padding: 25px;
         }
 
@@ -527,7 +534,7 @@
 
         /* Footer Frame */
         .science-footer {
-            background-color: #040408;
+            background-color: #000000;
             padding: 70px 20px;
             text-align: center;
             color: #444;
@@ -535,11 +542,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
             z-index: 10;
-        }
-
-        .easter-egg:hover {
-            color: #00ff66;
-            text-shadow: 0 0 8px #00ff66;
         }
 
         /* Animation Timings */
@@ -555,15 +557,24 @@
 </head>
 <body>
 
+    <!-- 🌌 QUANTUM GLOW BACKGROUND SYSTEM -->
     <canvas id="bg-canvas"></canvas>
 
+    <!-- STAGE 1 & 2: CONTAINER FOR INTERACTIVE DECONSTRUCTION -->
     <div class="scroll-container">
         <div class="viewport-wrapper">
 
+            <!-- Hero Intro Section -->
             <div class="ferrari-hero" id="heroScreen">
                 <div class="hero-content">
                     <div class="logo-wrapper">
-                        <img src="DR_Pipette.webp" alt="Dr. Pipette" class="hero-logo" id="mainLogoAsset">
+                        <!-- 🎯 DYNAMIC HOVER LOGO SWITCH ENGINE -->
+                        <img src="DR Pipette logo white.png" 
+                             alt="Dr. Pipette" 
+                             class="hero-logo" 
+                             id="mainLogoAsset"
+                             onmouseover="this.src='Untitled2.jpg'" 
+                             onmouseout="this.src='DR Pipette logo white.png'">
                         <div class="text-fallback-logo" id="textLogoAsset">DR. <span>PIPETTE</span></div>
                     </div>
                     <p class="hero-tagline">PRECISION IN EVERY DROP.</p>
@@ -571,6 +582,7 @@
                 </div>
             </div>
 
+            <!-- Interactive HUD Dashboard Frame -->
             <div class="interactive-screen" id="popupScreen">
                 <div class="screen-header">
                     <h2>ANALYTICAL INTERFACE MATRIX</h2>
@@ -628,8 +640,10 @@
         </div>
     </div>
 
+    <!-- STAGE 3: CONTINUOUS SCROLL SHOWROOM WEBPAGE -->
     <div class="extended-content">
         
+        <!-- 🔬 POST-SCROLL ENGINE component -->
         <h2 class="section-title">DYNAMIC <span>LAB ENVIRONMENT</span></h2>
         <p class="section-subtitle">Real-Time Fluid Calibration Diagnostic Chamber</p>
 
@@ -645,6 +659,7 @@
             </div>
         </div>
 
+        <!-- Fleet Grid Showcase -->
         <h2 class="section-title">THE 2026 <span>INSTRUMENT LINE</span></h2>
         <p class="section-subtitle">Premium Liquid Handling Infrastructure</p>
 
@@ -683,6 +698,7 @@
         <p>&copy; 2026 Dr. Pipette | Quantum Laboratory Instrument Layouts.</p>
     </footer>
 
+    <!-- INTERACTIVE PROGRAM ENGINE -->
     <script>
         // --- 🛠️ AUTOMATED LINK RECOVERY SYSTEM ---
         const mainLogo = document.getElementById('mainLogoAsset');
@@ -707,10 +723,10 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() * 1.2) - 0.6; // Slightly faster drift
+                this.vx = (Math.random() * 1.2) - 0.6;
                 this.vy = (Math.random() * 1.2) - 0.6;
-                this.radius = Math.random() * 3 + 1.5; // Larger nodes
-                this.color = Math.random() > 0.4 ? '#00f3ff' : '#E30613'; // Neon Cyan or Ferrari Red
+                this.radius = Math.random() * 3 + 1.5;
+                this.color = Math.random() > 0.4 ? '#00f3ff' : '#E30613';
             }
             update() {
                 if (this.x > canvas.width || this.x < 0) this.vx = -this.vx;
@@ -721,13 +737,13 @@
                     let dx = mouse.x - this.x; let dy = mouse.y - this.y;
                     let dist = Math.sqrt(dx*dx + dy*dy);
                     if (dist < mouse.radius) {
-                        this.x += dx * 0.02; this.y += dy * 0.02; // Stronger magnet pull
+                        this.x += dx * 0.02; this.y += dy * 0.02;
                     }
                 }
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.fillStyle = this.color;
-                ctx.shadowBlur = 10; // High-glow brightness mechanics
+                ctx.shadowBlur = 10;
                 ctx.shadowColor = this.color;
                 ctx.fill();
             }
@@ -737,7 +753,7 @@
 
         function drawPlexus() {
             ctx.clearRect(0,0,canvas.width,canvas.height);
-            ctx.globalCompositeOperation = 'screen'; // Creates dazzling bright overlays when lines cross
+            ctx.globalCompositeOperation = 'screen';
             for(let i=0; i<particlesArray.length; i++) particlesArray[i].update();
 
             for(let a=0; a<particlesArray.length; a++) {
@@ -748,7 +764,7 @@
                     if(dist < 130) {
                         ctx.strokeStyle = `rgba(0, 243, 255, ${1 - (dist/130)})`;
                         ctx.lineWidth = 1.2;
-                        ctx.shadowBlur = 0; // Clear performance lines
+                        ctx.shadowBlur = 0;
                         ctx.beginPath();
                         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
                         ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
@@ -761,7 +777,7 @@
         drawPlexus();
 
 
-        // --- 🔬 NEW POST-SCROLL ENGINE: FLUID DISPLACEMENT SIMULATOR ---
+        // --- 🔬 POST-SCROLL ENGINE: FLUID DISPLACEMENT SIMULATOR ---
         const chamberCanvas = document.getElementById('fluid-chamber-canvas');
         const cCtx = chamberCanvas.getContext('2d');
         const frameTarget = document.getElementById('canvasFrameTarget');
@@ -811,10 +827,9 @@
         }
 
         function runChamberEngine() {
-            cCtx.fillStyle = 'rgba(4, 4, 8, 0.2)'; // Fluid trail ghosting effect
+            cCtx.fillStyle = 'rgba(0, 0, 0, 0.25)';
             cCtx.fillRect(0, 0, chamberCanvas.width, chamberCanvas.height);
 
-            // Draw stable background data grid inside fluid tank
             cCtx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
             cCtx.lineWidth = 1;
             for(let i=0; i<chamberCanvas.width; i+=40) {
